@@ -1,9 +1,11 @@
+/* Réinitialisation des marges et des bordures, et définition du box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Style pour le body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -11,8 +13,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url('image_article_fortnite.png');
+    background-size: cover; /* Couvre entièrement l'élément */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
 }
 
+/* Conteneur pour le formulaire de connexion */
 .login-container {
     background-color: white;
     padding: 30px;
@@ -20,6 +27,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 300px;
+    z-index: 1; /* S'assure que le conteneur est au-dessus de l'image de fond */
 }
 
 h2 {
