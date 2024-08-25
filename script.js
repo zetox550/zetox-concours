@@ -1,3 +1,7 @@
+// Initialise EmailJS avec votre User ID
+emailjs.init("-xgMn-W7z9wR_oif-"); // Remplacez par votre clé API EmailJS
+
+// Fonction de validation du formulaire
 function validateForm() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -9,7 +13,7 @@ function validateForm() {
         return false;
     }
 
-    // Vous pouvez ajouter une validation plus complexe ici (par exemple, regex pour le format d'email)
+    // Validation du format d'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         errorMessage.textContent = "Veuillez entrer une adresse e-mail valide.";
@@ -20,3 +24,23 @@ function validateForm() {
     errorMessage.textContent = "";
     return true; // Permettre l'envoi du formulaire si la validation réussit
 }
+
+// Gestion de la soumission du formulaire
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche le comportement par défaut du formulaire
+
+    // Valider le formulaire avant l'envoi
+    if (!validateForm()) {
+        return; // Ne pas envoyer le formulaire si la validation échoue
+    }
+
+    // Envoie le formulaire avec EmailJS
+    emailjs.sendForm('service_odtxz18', 'template_pj35ygs', this)
+        .then(function(response) {
+            console.log('Succès:', response);
+            alert('Formulaire envoyé avec succès!');
+        }, function(error) {
+            console.log('Erreur:', error);
+            alert('Une erreur est survenue. Veuillez réessayer.');
+        });
+});
