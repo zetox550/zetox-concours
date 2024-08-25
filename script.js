@@ -3,15 +3,20 @@ function validateForm() {
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('errorMessage');
 
-    // Simple validation for demonstration
+    // Validation simple pour démonstration
     if (email === "" || password === "") {
         errorMessage.textContent = "Veuillez remplir tous les champs.";
         return false;
     }
 
-    // You can add more complex validation here (e.g., regex for email format)
+    // Vous pouvez ajouter une validation plus complexe ici (par exemple, regex pour le format d'email)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        errorMessage.textContent = "Veuillez entrer une adresse e-mail valide.";
+        return false;
+    }
 
-    // If all is good, allow the form to submit
-    errorMessage.textContent = ""; // Clear error message
-    return true;
+    // Effacer le message d'erreur si tout est correct
+    errorMessage.textContent = "";
+    return true; // Permettre l'envoi du formulaire si la validation réussit
 }
