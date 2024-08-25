@@ -3,34 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Connexion</title>
+    <title>Code de Vérification</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Connexion</h2>
-        <!-- Formulaire principal -->
-        <form id="loginForm">
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
-            
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
-            
-            <button type="submit">Se connecter</button>
-        </form>
-        
-        <!-- Formulaire pour entrer un code de vérification -->
-        <form id="codeForm" style="display: none;">
+    <div class="verification-container">
+        <h2>Code de Vérification</h2>
+        <form id="codeForm">
             <label for="code">Code de vérification :</label>
             <input type="text" id="code" name="code" placeholder="Entrez un code de votre choix" required>
             
             <button type="submit">Envoyer le code</button>
         </form>
-        
         <p class="error-message" id="errorMessage"></p>
     </div>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="script.js"></script>
+    <script src="verification.js"></script>
 </body>
 </html>
