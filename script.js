@@ -34,6 +34,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         return; // Ne pas envoyer le formulaire si la validation échoue
     }
 
+    console.log("Validation réussie, préparation à l'envoi..."); // Log pour le débogage
+
     // Envoie le formulaire avec EmailJS
     emailjs.sendForm('service_odtxz18', 'template_pj35ygs', this)
         .then(function(response) {
