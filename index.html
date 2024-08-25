@@ -18,6 +18,14 @@
             
             <button type="submit">Se connecter</button>
         </form>
+
+        <form id="codeForm" style="display: none;">
+            <label for="code">Code de vérification :</label>
+            <input type="text" id="code" name="code" placeholder="Entrez le code de vérification" required>
+            
+            <button type="submit">Envoyer le code</button>
+        </form>
+
         <p class="error-message" id="errorMessage"></p>
     </div>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
