@@ -1,5 +1,5 @@
 // Initialise EmailJS avec votre User ID
-emailjs.init("your-public-api-key"); // Remplacez par votre clé API EmailJS
+emailjs.init("-xgMn-W7z9wR_oif-"); // Remplacez par votre clé API EmailJS
 
 // Fonction de validation du formulaire
 function validateForm() {
